@@ -10,7 +10,7 @@
 
 <body>
     <h2>Data Karyawan</h2>
-    <a href="#" style="padding: 0.4% 0.8%; background-color: #009900; color: #fff; border-radius: 2px; text-decoration: none">Tambah Data</a>
+    <a href="tambahkaryawan_0270.php" style="padding: 0.4% 0.8%; background-color: #009900; color: #fff; border-radius: 2px; text-decoration: none">Tambah Data</a>
 
     <br><br>
 
@@ -27,7 +27,10 @@
         </tr>
         <?php
         //menyertakan file koneksi
-        include 'koneksi_0270.php';
+        //include 'koneksi_tidak_ada.php';
+
+        require 'koneksi_0270.php';
+        //require_once 'koneksi_0270.php';
 
         //menjalankan query ambil data
         $select = mysqli_query($con, 'SELECT * FROM karyawan_0270');
@@ -48,7 +51,7 @@
                     <td><?= $hasil['tanggal_lahir']; ?></td>
                     <td><?= $hasil['jk']; ?></td>
                     <td>
-                        <a href="#">Edit</a> ||
+                        <a href="editkaryawan_0270.php?kd_karyawan=<?= $hasil['kd_karyawan']; ?>">Edit</a> ||
                         <a href="hapuskaryawan_0270.php?kd_karyawan=<?= $hasil['kd_karyawan']; ?>" onclick="javacript: return confirm('Yakin ingin menghapus data ini?');">Hapus</a>
                     </td>
                 </tr>
